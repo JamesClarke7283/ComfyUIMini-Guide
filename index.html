@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Infographic: A Simple Guide to Prompting & ComfyUI Mini</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.10" integrity="sha512-gkOBSG09dEGRGctbDKUxdwEqCRlLaolsZlFOupjxC2ImzVvYtK9r6qN/IbnQNgwjAvfnNhWLkMcgcsMYK709EQ==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0" integrity="sha512-Y51n9mtKTVBh3Jbx5pZSJNDDMyY+yGe77DGtBPzRlgsf/YLCh13kSZ3JmfHGzYFCmOndraf0sQgfM654b7dJ3w==" crossorigin="anonymous"></script>
+        Copy
+        <!--
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+            rel="stylesheet"
+        /> -->
+        <link rel="stylesheet" type="text/css" href="./assets/styles.css">
+    </head>
+    <body class="bg-gray-100 text-gray-800">
+        <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+            <header class="text-center my-12">
+                <h1 class="text-4xl md:text-6xl font-black text-[#003f5c] mb-4">
+                    A Simple Guide to Prompting & ComfyUI Mini
+                </h1>
+                <p class="text-xl md:text-2xl font-bold text-[#58508d]">
+                    Your Mini User Guide for Crafting Art with AI
+                </p>
+            </header>
+
+            <main class="space-y-16">
+                <section
+                    id="intro"
+                    class="text-center bg-white rounded-2xl shadow-lg p-8 md:p-12"
+                >
+                    <h2 class="text-3xl font-bold text-[#003f5c] mb-4">
+                        Your First Conversation with an AI Artist
+                    </h2>
+                    <p class="text-lg max-w-3xl mx-auto text-gray-600">
+                        Think of an AI model like Chroma as a brilliant,
+                        literal-minded artist. It can draw anything, but only if
+                        you describe it perfectly. The "prompt" is your
+                        description. This guide will teach you how to talk to
+                        the artist using two tools: the
+                        <span class="font-bold text-[#bc5090]"
+                            >Positive Prompt</span
+                        >
+                        (what to draw) and the
+                        <span class="font-bold text-[#ffa600]"
+                            >Negative Prompt</span
+                        >
+                        (what to avoid).
+                    </p>
+                </section>
+
+                <section id="universal-basics">
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        Section 1: The Universal Basics
+                    </h2>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                    >
+                        <div class="bg-white rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-[#58508d] mb-4">
+                                The Building Blocks of a Great Prompt
+                            </h3>
+                            <p class="mb-6 text-gray-600">
+                                A good prompt isn't just a list of words; it's a
+                                structured recipe. For most AI models, focusing
+                                on three key areas in order yields the best
+                                results. The Subject is by far the most
+                                important ingredient.
+                            </p>
+                            <div class="chart-container h-64 md:h-80">
+                                <canvas id="promptAnatomyChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-8 flowchart-step"
+                            >
+                                <h3
+                                    class="text-2xl font-bold text-[#58508d] mb-2"
+                                >
+                                    Principle 1: Be Specific!
+                                </h3>
+                                <p class="text-gray-600">
+                                    Vague prompts create generic images. The AI
+                                    can't read your mind. Instead of <strong>"a car,"</strong>
+                                    describe <strong>"a vintage red convertible driving
+                                    on a coastal road at sunset."</strong>
+                                </p>
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-8 flowchart-step"
+                            >
+                                <h3
+                                    class="text-2xl font-bold text-[#58508d] mb-2"
+                                >
+                                    Principle 2: Iterate
+                                </h3>
+                                <div>
+                                <p class="text-gray-600 p-6 mb-6">
+                                    Don't try for perfection at first. Start
+                                    with a simple idea like:
+
+                                    <strong>"a fox,"</strong> see the
+                                    result, then add details one by one, like <strong>"a
+                                    fox in a snowy forest, watercolor style."</strong>
+                                </p>
+                                <div
+                                    class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-6 rounded-r-lg flex flex-col justify-center"
+                                    role="alert"
+                                >
+                                    <p class="font-bold text-lg mb-2">
+                                        💡 Usage Note: Reuse Seed
+                                    </p>
+                                    <p>
+                                        Ensure that you are using the same seed value for each iteration to maintain consistency in your results.
+                                    </p>
+                                </div>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="flux-vs-chroma">
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        Section 2: FLUX vs. Chroma - Understanding the Engine
+                    </h2>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                    >
+                        <div class="bg-white rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-[#58508d] mb-4">
+                                Model Personalities
+                            </h3>
+                            <p class="mb-6 text-gray-600">
+                                Chroma is based on FLUX.1, but was modified to
+                                give you more control. FLUX is a great listener
+                                that understands sentences perfectly but is hard
+                                to steer. Chroma combines that listening skill
+                                with powerful, direct controls, especially via
+                                the negative prompt.
+                            </p>
+                            <div class="chart-container h-80 md:h-96">
+                                <canvas id="modelComparisonChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-[#58508d] mb-4">
+                                The Main Difference: Your Control
+                            </h3>
+                            <ul class="space-y-4 text-lg">
+                                <li class="flex items-start">
+                                    <span
+                                        class="text-[#ffa600] font-black text-2xl mr-4"
+                                        >➤</span
+                                    >
+                                    <div>
+                                        <strong class="text-[#58508d]"
+                                            >FLUX.1:</strong
+                                        >
+                                        It demands full, perfect sentences.
+                                        Correcting it means rewriting the whole
+                                        description. It's like commissioning a
+                                        painting and waiting for the final
+                                        result.
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span
+                                        class="text-[#bc5090] font-black text-2xl mr-4"
+                                        >➤</span
+                                    >
+                                    <div>
+                                        <strong class="text-[#58508d]"
+                                            >Chroma:</strong
+                                        >
+                                        It gives you back the steering wheel.
+                                        The negative prompt is a powerful tool
+                                        to actively shape the image. It's more
+                                        like sculpting clay, adding and removing
+                                        until it's just right.
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-6 text-gray-600 font-semibold">
+                                Because of this, with Chroma, you are in the
+                                driver's seat, able to make fine-tuned
+                                adjustments iteratively.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="chroma-prompting">
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        Section 3: Mastering Chroma
+                    </h2>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        <div
+                            class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8"
+                        >
+                            <h3 class="text-2xl font-bold text-[#58508d] mb-6">
+                                Your Primary Steering Wheel: The Negative Prompt
+                            </h3>
+                            <p class="mb-6 text-gray-600">
+                                While a good positive prompt is crucial,
+                                Chroma's power lies in its responsive negative
+                                prompt. Use it not just to fix errors, but to
+                                actively define your desired style. A small,
+                                targeted negative prompt is often more effective
+                                than a long list.
+                            </p>
+                            <div class="chart-container h-64 md:h-80">
+                                <canvas id="negativePromptChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-center flowchart-step"
+                            >
+                                <h3
+                                    class="text-xl font-bold text-[#58508d] mb-2"
+                                >
+                                    Chroma Core Principle: Order Matters!
+                                </h3>
+                                <p class="text-gray-600">
+                                    Place the most important part of your image
+                                    at the very
+                                    <span
+                                        class="font-extrabold text-2xl text-[#bc5090]"
+                                        >start</span
+                                    >
+                                    of the prompt. This has a huge impact.
+                                </p>
+                                <p class="mt-4 text-gray-500">
+                                    <span
+                                        class="font-extrabold text-[#bc5090]">Example</span>: Start with <strong>"A portrait of a
+                                    queen..."</strong> not <strong>"In a castle, there is a
+                                    portrait of a queen...".</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="workflow">
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        The Chroma Prompting Workflow
+                    </h2>
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4"
+                    >
+                        <div
+                            class="bg-white rounded-2xl shadow-lg p-6 text-center flowchart-step w-64"
+                        >
+                            <div
+                                class="text-4xl font-black text-[#003f5c] mb-2"
+                            >
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold text-[#58508d]">
+                                Start Simple
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Core subject only. Ex: `a cat`
+                            </p>
+                        </div>
+                        <div
+                            class="text-[#ffa600] flowchart-arrow transform md:rotate-0 rotate-90"
+                        >
+                            ➔
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-lg p-6 text-center flowchart-step w-64"
+                        >
+                            <div
+                                class="text-4xl font-black text-[#003f5c] mb-2"
+                            >
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold text-[#58508d]">
+                                Add Style & Detail
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Ex: `A photo of a fluffy cat, sitting on a
+                                bookshelf`
+                            </p>
+                        </div>
+                        <div
+                            class="text-[#ffa600] flowchart-arrow transform md:rotate-0 rotate-90"
+                        >
+                            ➔
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-lg p-6 text-center flowchart-step w-64"
+                        >
+                            <div
+                                class="text-4xl font-black text-[#003f5c] mb-2"
+                            >
+                                3
+                            </div>
+                            <h3 class="text-xl font-bold text-[#58508d]">
+                                Add Atmosphere
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Ex: `...dramatic lighting, magical atmosphere`
+                            </p>
+                        </div>
+                        <div
+                            class="text-[#ffa600] flowchart-arrow transform md:rotate-0 rotate-90"
+                        >
+                            ➔
+                        </div>
+                        <div
+                            class="bg-[#bc5090] text-white rounded-2xl shadow-lg p-6 text-center flowchart-step w-64"
+                        >
+                            <div class="text-4xl font-black mb-2">4</div>
+                            <h3 class="text-xl font-bold">
+                                Refine with Negatives
+                            </h3>
+                            <p class="opacity-90 text-sm">
+                                Add `cartoon, painting` to make it a photo.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    id="cheatsheet"
+                    class="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+                >
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        At-a-Glance Cheat Sheet
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="p-4 bg-[#003f5c] text-white rounded-tl-lg"
+                                    >
+                                        Goal
+                                    </th>
+                                    <th class="p-4 bg-[#003f5c] text-white">
+                                        Positive Prompt Tactic (What to Add)
+                                    </th>
+                                    <th
+                                        class="p-4 bg-[#003f5c] text-white rounded-tr-lg"
+                                    >
+                                        Negative Prompt Tactic (What to Remove)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-4 font-bold text-[#58508d]">
+                                        Get a realistic photo
+                                    </td>
+                                    <td class="p-4">
+                                        Start with `photograph of...`. Add `8k,
+                                        ultra-detailed`.
+                                    </td>
+                                    <td class="p-4">
+                                        Add `painting, drawing, illustration,
+                                        cartoon, 3d`.
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 bg-gray-50">
+                                    <td class="p-4 font-bold text-[#58508d]">
+                                        Get a cartoon/anime image
+                                    </td>
+                                    <td class="p-4">
+                                        Start with `anime screenshot...`. Name
+                                        an artist style.
+                                    </td>
+                                    <td class="p-4">
+                                        Add `photograph, realistic, 3d,
+                                        photorealism`.
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="p-4 font-bold text-[#58508d]">
+                                        Fix ugly or blurry images
+                                    </td>
+                                    <td class="p-4">
+                                        Add `masterpiece, best quality, sharp
+                                        focus`.
+                                    </td>
+                                    <td class="p-4">
+                                        Add `low quality, ugly, deformed,
+                                        blurry`.
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-4 font-bold text-[#58508d]">
+                                        Emphasize a key detail
+                                    </td>
+                                    <td class="p-4">
+                                        Put the subject at the
+                                        <strong class="text-[#bc5090]"
+                                            >very beginning</strong
+                                        >
+                                        of the prompt.
+                                    </td>
+                                    <td class="p-4 text-gray-500">
+                                        (Not applicable for this goal)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section
+                    id="guide-comfy-ui-mini"
+                    class="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+                >
+                    <h2
+                        class="text-3xl font-bold text-center mb-10 text-[#003f5c]"
+                    >
+                        Guide for ComfyUI Mini
+                    </h2>
+                    <p class="text-center text-gray-600 -mt-6 mb-12">
+                        A quick look at the interface controls.
+                    </p>
+
+                    <div class="space-y-12">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-[#58508d] mb-4">
+                                UI Overview
+                            </h3>
+                            <img
+                                title="UI Overview"
+                                class="max-w-full h-auto rounded-lg shadow-md mx-auto"
+                                src="./assets/images/01-IllustrateMiniComfyUI-Intro.webp"
+                                alt="UI Overview Screenshot"
+                            />
+                        </div>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-1 gap-8 items-start"
+                        >
+                            <div class="text-center">
+                                <h3
+                                    class="text-2xl font-bold text-[#58508d] mb-4"
+                                >
+                                    Seed Field Overview
+                                </h3>
+
+                                <p class="font-bold text-lg mb-6">
+                                    The seed field is important because it
+                                    determines the randomness of the generated
+                                    images. By changing the seed, you can create
+                                    different variations of the same image.
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <h4
+                                    class="text-xl font-bold text-[#58508d] mb-4"
+                                >
+                                    Unlocked Mode (The Default)
+                                </h4>
+                                <img
+                                    class="w-full h-auto rounded-lg shadow-md mx-auto"
+                                    src="./assets/images/02-IllustrateMiniComfyUI-Unlocked-Seed.webp"
+                                    alt="Unlocked Seed Field"
+                                />
+                            </div>
+                            <div class="text-center">
+                                <h4
+                                    class="text-xl font-bold text-[#58508d] mb-4"
+                                >
+                                    Locked Mode
+                                </h4>
+                                <img
+                                    class="w-full h-auto rounded-lg shadow-md mx-auto"
+                                    src="./assets/images/03-IllustrateMiniComfyUI-Locked-Seed.webp"
+                                    alt="Locked Seed Field"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div
+                            class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-r-lg flex flex-col justify-center"
+                            role="alert"
+                        >
+                            <p class="font-bold text-lg mb-2">
+                                ⚠️ WARNING: Seed Persistence
+                            </p>
+                            <p>
+                                If you want to reuse a Seed number, save it
+                                elsewhere.
+                                <strong
+                                    >There is no guarantee the web-app will
+                                    remember it when you leave the
+                                    session.</strong
+                                >
+                            </p>
+                        </div>
+                        <div
+                            class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-6 rounded-r-lg flex flex-col justify-center"
+                            role="alert"
+                        >
+                            <p class="font-bold text-lg mb-2">
+                                💡 Usage Note: Manual Entry
+                            </p>
+                            <p>
+                                You can manually enter any Seed value you want
+                                directly into the Seed field text box.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="text-center my-12">
+                <p class="text-xl font-bold text-[#003f5c]">
+                    The Most Important Tip: Have Fun & Experiment!
+                </p>
+                <p class="text-gray-600 mt-2">
+                    Every image is a chance to learn. Enjoy the process of
+                    discovery.
+                </p>
+            </footer>
+        </div>
+
+        <script src="./assets/charts.js"></script>
+    </body>
+</html>
